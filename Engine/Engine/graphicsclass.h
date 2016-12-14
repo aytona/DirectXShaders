@@ -28,4 +28,13 @@ private:
     CameraClass* m_Camera;
     ModelClass* m_Model;
     ColorShaderClass* m_ColorShader;
+
+    float m_speed;
+    float m_maxDistance;
+    float m_minDistance;
+    float m_tessellationAmount;
+    float m_maxTessellation;
+    float m_currentZPos;
+
+    bool m_movingBack;
 };

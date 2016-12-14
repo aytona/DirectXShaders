@@ -8,6 +8,16 @@ GraphicsClass::GraphicsClass()
     m_Camera = 0;
     m_Model = 0;
     m_ColorShader = 0;
+
+    m_speed = -0.5f;
+    m_maxDistance = -50.0f;
+    m_minDistance = -5.0f;
+
+    m_tessellationAmount;
+    m_maxTessellation = 64.0f;
+    m_currentZPos;
+
+    m_movingBack = true;
 }
 
 GraphicsClass::GraphicsClass(const GraphicsClass& other)
@@ -99,6 +109,21 @@ bool GraphicsClass::Frame()
 	result = Render();
 	if (!result)
 		return false;
+
+    m_currentZPos = m_Camera->GetPosition().z;
+
+    if (m_currentZPos >= m_minDistance && !m_movingBack) {
+        m_movingBack = true;
+        m_speed = -m_speed;
+    } else if (m_currentZPos <= m_maxDistance && m_movingBack) {
+        m_movingBack = false;
+        m_speed = -m_speed;
+    }
+
+    m_Camera->SetPosition(0.0f, 0.0f, m_currentZPos + m_speed);
+
+    m_tessellationAmount = m_maxTessellation - ((m_currentZPos * m_maxTessellation) / m_maxDistance);
+
 	return true;
 }
 
@@ -117,7 +142,7 @@ bool GraphicsClass::Render()
 
     m_Model->Render(m_D3D->GetDeviceContext());
 
-    result = m_ColorShader->Render(m_D3D->GetDeviceContext(), m_Model->GetIndexCount(), worldMatrix, viewMatrix, projectionMatrix, 12.0f);
+    result = m_ColorShader->Render(m_D3D->GetDeviceContext(), m_Model->GetIndexCount(), worldMatrix, viewMatrix, projectionMatrix, m_tessellationAmount);
     if (!result)
         return false;
 
