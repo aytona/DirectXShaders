@@ -1,0 +1,16 @@
+﻿  systemclass.cpp
+d:\documents\github\game3111\lab7\engine\engine\d3dclass.h(10): fatal error C1083: Cannot open include file: 'd3dx10math.h': No such file or directory
+  modelclass.cpp
+d:\documents\github\game3111\lab7\engine\engine\modelclass.h(4): fatal error C1083: Cannot open include file: 'd3dx10math.h': No such file or directory
+  main.cpp
+d:\documents\github\game3111\lab7\engine\engine\d3dclass.h(10): fatal error C1083: Cannot open include file: 'd3dx10math.h': No such file or directory
+  inputclass.cpp
+  graphicsclass.cpp
+d:\documents\github\game3111\lab7\engine\engine\d3dclass.h(10): fatal error C1083: Cannot open include file: 'd3dx10math.h': No such file or directory
+  d3dclass.cpp
+d:\documents\github\game3111\lab7\engine\engine\d3dclass.h(10): fatal error C1083: Cannot open include file: 'd3dx10math.h': No such file or directory
+  colorshaderclass.cpp
+d:\documents\github\game3111\lab7\engine\engine\colorshaderclass.h(4): fatal error C1083: Cannot open include file: 'd3dx10math.h': No such file or directory
+  cameraclass.cpp
+d:\documents\github\game3111\lab7\engine\engine\cameraclass.h(3): fatal error C1083: Cannot open include file: 'd3dx10math.h': No such file or directory
+  Generating Code...
